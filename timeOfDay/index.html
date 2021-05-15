@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		body{
+			margin: 0px;
+		}
+		#container{
+			width: 95%;
+			margin: auto;
+		}
+		#top{
+			border-radius: 25px;
+			background-color: rgba(255,255,255, .4);
+			position: absolute;
+			color: white;
+			padding: 25px;
+			padding-top: 60px;
+			padding-bottom: 10px;
+			top: 100px;
+			left: 90px;
+			border: solid 1px black;
+		}
+
+		#body{
+			position: absolute;
+			bottom: 35px;
+			left: 500px;
+		}
+		#head{
+			position: absolute;
+			bottom: 315px;
+			left: 575px;
+		}
+		.background{
+			position: absolute;
+			width: 95%;
+			margin: 0 auto;
+		}
+		#greeting{
+			position: absolute;
+			top: 95px;
+			left: 115px;
+			font-size: 30pt;
+			color: white;
+
+		}
+		#hat{
+			height: 60px;
+			width: auto;
+			position: absolute;
+			bottom: 400px;
+			left: 575px;
+		}
+	</style>
+	<title>
+	</title>
+</head>
+
+<body>
+	<div id="container">
+
+		<script type="text/javascript">
+			let now = new Date();
+			console.log(now);
+
+			//get hours/minutes/seconds
+			let hours = now.getHours();
+			let minutes = now.getMinutes();
+			let seconds = now.getSeconds();
+
+			if (hours >= 6 && hours < 12){//morning 4-12
+				document.write(`<img src="backgrounds/morning.png" class="background">`);
+				document.write("<h1 id='greeting'>Good morning!</h1>");
+			}
+			else if (hours >= 12 && hours < 18){//afternoon 12-7
+				document.write(`<img src="backgrounds/afternoon.png" class="background">`);
+				document.write("<h1 id='greeting'>Good afternoon!</h1>");
+			}
+			else if (hours >= 18 && hours < 24){//evening 7-11
+				document.write(`<img src="backgrounds/evening.png" class="background">`);
+				document.write('<h1 id="greeting">Good evening!</h1>');
+			}
+			else if (hours >= 0 || hours < 6){//night 11-4
+				document.write(`<img src="backgrounds/night.png" class="background">`);
+				document.write('<h1 id="greeting">Good night!</h1>');
+			}
+			
+			var words = ['Everything is Awesome','Everything is Fantastic','Everything is Fabulous','Everything is Superb','Everything is Perfect','Everything is Brilliant','Everything is Coming up Roses'];
+
+
+			while(true){
+				var luckynumber1 = parseInt(Math.random() * 10)
+				var luckynumber2 = parseInt(Math.random() * 10)
+				var luckynumber3 = parseInt(Math.random() * 10)
+				if (luckynumber1 != luckynumber2){
+					if (luckynumber2 != luckynumber3){
+						if (luckynumber1 != luckynumber3){
+							break;
+						}
+					}
+				}
+			}
+
+
+			//random words
+			var choice = parseInt(Math.random() * words.length);
+			if (hours >= 12 && hours < 24){
+				nt_hours = hours - 12;
+				if (minutes < 10){
+					if (seconds < 10){
+						document.write(`<div id="top" width="400px" height="200px"> <h1>${words[choice]}</h1><h2>Time of day: ${nt_hours}:0${minutes}:0${seconds} PM</h2> <h2>Your lucky numbers are ${luckynumber1}, ${luckynumber2}, ${luckynumber3}</div>`);
+					}
+					else{
+						document.write(`<div id="top" width="400px" height="200px"> <h1>${words[choice]}</h1><h2>Time of day: ${nt_hours}:0${minutes}:${seconds} PM</h2> <h2>Your lucky numbers are ${luckynumber1}, ${luckynumber2}, ${luckynumber3}</div>`);
+					}
+				}
+				else{
+					if (seconds < 10){
+						document.write(`<div id="top" width="400px" height="200px"> <h1>${words[choice]}</h1><h2>Time of day: ${nt_hours}:${minutes}:0${seconds} PM</h2> <h2>Your lucky numbers are ${luckynumber1}, ${luckynumber2}, ${luckynumber3}</div>`);
+					}
+					else{
+						document.write(`<div id="top" width="400px" height="200px"> <h1>${words[choice]}</h1><h2>Time of day: ${nt_hours}:${minutes}:${seconds} PM</h2> <h2>Your lucky numbers are ${luckynumber1}, ${luckynumber2}, ${luckynumber3}</div>`);
+					}
+				}	
+			}
+			else{
+				if (minutes < 10){
+					if (seconds < 10){
+						document.write(`<div id="top" width="400px" height="200px"> <h1>${words[choice]}</h1><h2>Time of day: ${hours}:0${minutes}:0${seconds} AM</h2> <h2>Your lucky numbers are ${luckynumber1}, ${luckynumber2}, ${luckynumber3}</div>`);
+					}
+					else{
+						document.write(`<div id="top" width="400px" height="200px"> <h1>${words[choice]}</h1><h2>Time of day: ${hours}:0${minutes}:${seconds} AM</h2> <h2>Your lucky numbers are ${luckynumber1}, ${luckynumber2}, ${luckynumber3}</div>`);
+					}
+				}
+				else{
+					if (seconds < 10){
+						document.write(`<div id="top" width="400px" height="200px"> <h1>${words[choice]}</h1><h2>Time of day: ${hours}:${minutes}:0${seconds} AM</h2> <h2>Your lucky numbers are ${luckynumber1}, ${luckynumber2}, ${luckynumber3}</div>`);
+					}
+					else{
+						document.write(`<div id="top" width="400px" height="200px"> <h1>${words[choice]}</h1><h2>Time of day: ${hours}:${minutes}:${seconds} AM</h2> <h2>Your lucky numbers are ${luckynumber1}, ${luckynumber2}, ${luckynumber3}</div>`);
+					}
+				}	
+			}
+
+			//random bodies
+			var bodies = ['body1.png','body2.png','body3.png','body4.png','body5.png','body6.png'];
+			var bodychoice = parseInt(Math.random() * bodies.length);
+			document.write(`<img src="bodies/${bodies[bodychoice]}" id="body">`);
+
+			//random heads
+			var heads = ['head1.png','head2.png','head3.png','head4.png','head5.png','head6.png'];
+			var headchoice = parseInt(Math.random() * heads.length);
+			document.write(`<img src="heads/${heads[headchoice]}" id="head">`);
+
+			//random hats
+			var hats = ['hat1.png','hat2.png']
+			var hatchoice = parseInt(Math.random() * hats.length);
+			document.write(`<img src="hats/${hats[hatchoice]}" id="hat"`);
+
+		</script>
+
+	</div>	
+
+
+</body>
+
+</html>

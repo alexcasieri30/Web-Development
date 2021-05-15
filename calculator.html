@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<style type="text/css">
+		#box1{
+			margin: 10px; 
+			text-align: center;
+			width: 50px;
+			height: 50px;
+		}
+		#box2{
+			margin: 10px;
+			text-align: center;
+			width: 50px;
+			height: 50px;
+		}
+		#answerbox{
+			position: absolute;
+			left: 250px;
+			top: 37px;
+		}
+
+	</style>
+
+	<input type="text" id='box1'>
+
+	<select id='operator'>
+
+		<option value = 'plus' id='plus'>+</option>
+		<option value = 'minus' id='minus'>-</option>
+		<option value = 'divide' id='divide'>/</option>
+		<option value = 'mult' id='mult'>*</option>
+
+	</select>
+
+	<input type="text" id='box2'>
+
+	<button id='solve'>=</button>
+
+	<br>
+	<br>
+	<div id="answerbox"></div>
+
+	<script type="text/javascript">
+		
+		let answerbox = document.getElementById('answerbox');
+
+		solve.onclick = function(){
+
+			let box1 = document.getElementById('box1')
+			let box2 = document.getElementById('box2')
+
+			let value1 = parseInt(box1.value)
+			let value2 = parseInt(box2.value)
+
+			let operator = document.getElementById('operator')
+
+			var answer;
+
+			let solve = document.getElementById('solve');
+
+			if (operator.value == 'plus'){
+				answer = value1 + value2;
+			}
+			else if ( operator.value == 'minus'){
+				answer = value1 - value2;
+			}
+			else if (operator.value == 'divide'){
+				answer = value1 / value2;
+			}
+			else if (operator.value == 'mult'){
+				answer = value1 * value2; 
+			}
+
+			answerbox.innerHTML = answer;
+		}
+
+	</script>
+
+</body>
+</html>

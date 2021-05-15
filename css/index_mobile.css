@@ -1,0 +1,44 @@
+.assignments{
+	padding: 0px;
+	margin-left: 70px;
+	margin-right: 70px;
+	list-style: none;
+}
+#header{
+	text-align: center;
+}
+.assignments li ul{
+	list-style: none;
+}
+
+.assignments li ul li{
+	border: solid 1px black;
+	padding: 10px;
+	text-align: center;
+}
+
+.assignments li ul li a{
+	text-decoration: none;
+}
+.assignments li ul li a:hover{
+	color: blue;
+	font-size: 15pt;
+}
+.assignments li ul li:hover{
+	background-color: gray;
+}
+
+img{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}
+#row1{
+	padding: 0px;
+}
+#row2{
+	padding: 0px;
+}
+#row3{
+	padding: 0px;
+}

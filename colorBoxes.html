@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+
+  <head>
+    <title>Micro 03</title>
+    <style>
+      /* you may not make any changes to the CSS rules below */
+      .blue {
+        color: blue;
+      }
+      .pink {
+        color: pink;
+      }
+      .square {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        box-sizing: border-box;
+        display: inline-block;
+        font-size: 200%;
+        margin: 0px;
+      }
+      .yellow {
+        background-color: yellow;
+      }
+      .red {
+        background-color: red;
+      }
+      .orange {
+        background-color: orange;
+      }
+      .container {
+        width: 502px;
+        height: 202px;
+        border: 1px solid black;
+        box-sizing: border-box;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- you may not directly change any HTML on this page
+         you can only use JavaScript in the 'script' tag below
+         to make changes -->
+    <div id="box1">
+      <div class="square yellow">1</div>
+      <div class="square yellow">3</div>
+      <div class="square yellow">4</div>
+      <div class="square yellow">2</div>
+      <div class="square yellow">5</div>
+    </div>
+    <div id="box2">
+      <div class="square red">6</div>
+      <div class="square red">9</div>
+      <div class="square red">8</div>
+      <div class="square red">10</div>
+      <div class="square red">7</div>
+    </div>
+
+    <div id="box4" class="container"></div>
+    <div id="box5" class="container"></div>
+
+    <script>
+
+      // Task #1: change all yellow squares to red square,
+      //          and all red square to yellow squares. you must use the
+      //          provided classes for this (you cannot use inline styles)
+      //          HINT: use 'querySelectorAll' instead of 'getElementsByClassName' here
+      //          this was not mentioned in the video, but 'querySelectorAll' will return
+      //          an array of elements that represents a 'snapshot' in time of all elements
+      //          that are members of a class, whereas 'getElementsByClassName' will return an
+      //          'auto-updating' object that will change whenever the class membership
+      //          of an element changes.
+
+      let yellow = document.querySelectorAll('.yellow');
+      let red = document.querySelectorAll('.red');
+
+      
+      for (let i = 0; i < yellow.length; i++){
+        yellow[i].classList.remove('yellow');
+      }
+
+      for (let i = 0; i < red.length; i++){
+        red[i].classList.remove('red');
+      }
+
+
+      for (let i = 0; i < yellow.length; i++){
+        yellow[i].classList.add('yellow');
+      }
+      for (let i = 0; i < red.length; i++){
+        red[i].classList.add('red');
+      }
+
+      // red.classList.remove('red');
+
+      // yellow.classList.add('red');
+      // red.classList.add('yellow');
+
+
+      // Task #2: change all squares that have even numbers in them
+      //          so that they use the 'blue' class, and all odd numbered
+      //          squares so that they use the 'pink' class
+
+      let squares = document.querySelectorAll('.square')
+
+      for (let i = 0; i < squares.length; i++){
+        let number = squares[i].innerHTML;
+
+        if (parseInt(number) %2===0){
+          squares[i].classList.add('blue');
+        }
+        else{
+          squares[i].classList.add('pink');
+        }
+      }
+
+      // Task #3: add 10 divs with classes of 'orange' and 'square'
+      //          to the div with an id of 'box4'
+      let container = document.getElementById('box4');
+
+      for ( let i = 0; i < 10; i++){
+        let tempdiv = document.createElement('div');
+
+        tempdiv.classList.add('orange');
+        tempdiv.classList.add('square');
+
+        container.appendChild( tempdiv );
+
+      }
+
+      // Task #4: add 10 divs with a class of 'square' and a RANDOMLY
+      //          selected class of orange, red or yellow to the div
+      //          with an id of box5
+
+      let container2 = document.getElementById('box5');
+      for (let i = 0; i < 10; i++){
+        let tempdiv = document.createElement('div');
+        
+        let colors = ['orange','yellow','red'];
+        let randnum = parseInt( Math.random() * colors.length);
+
+        tempdiv.classList.add('square');
+        tempdiv.classList.add(colors[randnum]);
+
+        container2.appendChild( tempdiv );
+      }
+
+    </script>
+
+  </body>
+
+</html>
+
+	
