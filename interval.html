@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.box{
+			float: left;
+		}
+		#rotate{
+			width: 100px;
+			height: 100px;
+			border: solid 1px black;
+			margin-left: 50px;
+			margin-top: 150px;
+			background: blue;
+		}
+		#foo{
+			margin-top: 50px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Set Timeout & Interval</h1>
+	<button id='one'>Add box to page after 1 second</button>
+	<button id="spinleft">Spin Left</button>
+	<button id="spinright">Spin Right</button>
+	<button id='stop'>Stop</button>
+	<div id="rotate"></div>
+	<div id='foo'></div>
+	<script type="text/javascript">
+		let spinLeft = document.getElementById('spinleft')
+		let spinRight = document.getElementById('spinright')
+		let angle = 0;
+		var clicked = false;
+		function Right(){
+			clicked = true;
+			let rotate = document.getElementById('rotate')
+			let int = 1;
+			angle += int;
+			rotate.style.transform = `rotate(${angle}deg)`
+		}
+		function Left(){
+			clicked = true;
+			let rotate = document.getElementById('rotate')
+			let int = 1;
+			angle -= int;
+			rotate.style.transform = `rotate(${angle}deg)`
+		}
+		let controlvariable; 
+		spinRight.addEventListener('click', function(event){
+			clearInterval(controlvariable);
+			clicked = false;
+			if (clicked == false){
+				controlvariable = setInterval( Right, 10 )
+			}
+		})
+		spinLeft.addEventListener('click', function(event){
+			clearInterval(controlvariable);
+			clicked = false;
+			if (clicked == false){
+				controlvariable = setInterval( Left, 10 )
+			}
+		})
+		let stop = document.getElementById('stop')
+		stop.addEventListener('click', function(event){
+			clicked = false;
+			clearInterval( controlvariable )
+		})
+		let button1 = document.getElementById('one');
+		let foo = document.getElementById('foo')
+		function addBox(){
+			let div1 = document.createElement('div')
+			let width = parseInt(Math.random() * 100) + 50
+			let height = parseInt(Math.random() * 100) + 50
+			let num1 = parseInt(Math.random() * 255)
+			let num2 = parseInt(Math.random() * 255)
+			let num3 = parseInt(Math.random() * 255)
+			div1.style.width = width + 'px';
+			div1.style.height = height + 'px';
+			div1.classList.add('box')
+			div1.style.backgroundColor = `rgb(${num1},${num2},${num3}`
+			foo.appendChild(div1)
+		}
+		button1.onclick = function(){
+			setTimeout(addBox, 1000)
+		}
+	</script>
+</body>
+</html>
